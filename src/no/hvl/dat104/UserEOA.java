@@ -24,7 +24,7 @@ public class UserEOA {
 	}
 	
 	public User finnUser(int mobilnr) {
-		TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.mobil='" + mobilnr +"'", User.class);
+		TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.mobil=" + mobilnr, User.class);
 		User user = query.getSingleResult();
 			return user;	
 	}
