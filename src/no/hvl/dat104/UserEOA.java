@@ -24,13 +24,12 @@ public class UserEOA {
 	}
 	
 	public User finnUser(int mobilnr) {
-		TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.mobil=" + mobilnr, User.class);
-		User user = query.getSingleResult();
-			return user;	
+			User user = em.find(User.class, mobilnr);
+		return user;	
 	}
 	
 	public List<User> finnAlleUser(){
-		TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
+			TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
 		return query.getResultList();
 	}
 	
