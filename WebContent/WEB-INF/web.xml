@@ -17,20 +17,4 @@
     <param-name>timeout</param-name>
     <param-value>10</param-value>
   </context-param>
-  <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>pakke.LoginServlet</servlet-class>
-    <init-param>
-      <param-name>passord</param-name>
-      <param-value>hei</param-value>
-    </init-param>
-  </servlet>
-  <servlet>
-    <servlet-name>HandlelisteServlet</servlet-name>
-    <servlet-class>pakke.HandlelisteServlet</servlet-class>
-    <init-param>
-      <param-name>timeout</param-name>
-      <param-value>10</param-value>
-    </init-param>
-  </servlet>
 </web-app>

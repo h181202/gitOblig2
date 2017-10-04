@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class KassererLoginServlet
@@ -14,12 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/KassererLoginServlet")
 public class KassererLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private String passord;
 
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
+		super.init(config);
+		passord = getServletContext().getInitParameter("kassererpass");
 	}
 
 	/**
@@ -27,15 +30,36 @@ public class KassererLoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String redirectErrorMessage = "";
+		if(request.getParameter("feilPassord") != null)
+		{
+			redirectErrorMessage = "Passordet er ugyldig ";
+		}
+		request.setAttribute("redirectErrorMessage", redirectErrorMessage);
+		
+		request.getRequestDispatcher("WEB-INF/kassererlogin.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String input = request.getParameter("password");
+		if(!(passord.equals(input)))
+		{
+			response.sendRedirect("KassererLoginServlet?feilPassord");
+		}
+		else
+		{
+			HttpSession session = request.getSession(false);
+			if (session != null) {
+				session.invalidate();
+			}
+			session = request.getSession(true);
+			response.sendRedirect("BetalingsoversiktServlet");
+		}
+		
 	}
 
 }
