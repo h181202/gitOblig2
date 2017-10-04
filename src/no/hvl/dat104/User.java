@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 public class User {
 
 	@Id
-	private int mobil;
+	private Integer mobil;
 	private String fnavn;
 	private String enavn;
 	private boolean sex;
