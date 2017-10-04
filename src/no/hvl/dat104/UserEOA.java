@@ -1,5 +1,6 @@
 package no.hvl.dat104;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -14,28 +15,41 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class UserEOA {
 
+				private	User user1;
+				private	user1.setMobil(81549300);
+				private	user1.setFnavn("Erik");
+				private	user1.setEnavn("Rolpemann");
+				private	user1.setSex(true);
+				private	user1.setBetalt(false);
+				private	List<User> userList = new ArrayList<User>();
+	
+	
+	
+	
 	@PersistenceContext(name = "userPersistenceUnit")
 	private EntityManager em;
 	
 	public void leggTilUser(User user) {
 		//if(!userFinnes(user)) {
-			em.persist(user);
+		//	em.persist(user);
 		//}
 	}
 	
 	public User finnUser(int mobilnr) {
-			User user = em.find(User.class, mobilnr);
-		return user;	
+	//		User user = em.find(User.class, mobilnr);
+	//	return user;	
+		return user1;
 	}
 	
 	public List<User> finnAlleUser(){
-			TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
-		return query.getResultList();
+	//		TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
+	//	return query.getResultList();
+		return userList;
 	}
 	
 	public void betaling(User user) {
-		user.setBetalt(true);
-		em.persist(user);
+		//user.setBetalt(true);
+		//em.persist(user);
 	}
 	
 	public boolean userFinnes(User user) {
