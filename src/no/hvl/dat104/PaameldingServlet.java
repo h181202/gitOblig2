@@ -32,6 +32,8 @@ public class PaameldingServlet extends HttpServlet {
 		PaameldingHjelp paamelding = new PaameldingHjelp(request);
 		if(paamelding.alleGyldige()) {
 			
+			HttpSession session = request.getSession(true);
+			
 			User user = new User();
 			user.setMobil(Integer.parseInt(paamelding.getMobilnr()));
 			user.setEnavn(paamelding.getFornavn());
@@ -44,9 +46,8 @@ public class PaameldingServlet extends HttpServlet {
 				user.setSex(false);
 			}
 			eao.leggTilUser(user);
-			request.setAttribute("user", user);
+			request.getSession().setAttribute("user", user);
 			
-			HttpSession session = request.getSession(true);
 			request.getSession().removeAttribute("paamelding");
 			response.sendRedirect("PaamBekreftServlet");
 		} else {

@@ -16,6 +16,6 @@
 	${user.mobil}<br/>
 	${user.kjonn}</p>
 <p><b>NB! Husk å betale til kassereren før festen!</b></p>
-<a href="deltagerliste.html">Gå til deltagerlisten</a>
+<a href="DeltagerListeServlet">Gå til deltagerlisten</a>
 </body>
 </html>

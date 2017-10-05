@@ -16,7 +16,7 @@ Logg inn ved å gi mobilnummeret ditt.</p>
   <fieldset>
     <legend>Logg inn</legend>
     <p>Mobil: <input type="password" name="mobil"/>
-    ${logginnservlet.feilmelding}</p>
+    ${requestScope.redirectErrorMessage}"></p>
     <p><input type="submit" value="Logg inn" /></p>
   </fieldset>
 </form>

@@ -17,9 +17,15 @@ public class PaamBekreftServlet extends HttpServlet {
 	   
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 						throws ServletException, IOException {
+			
+			HttpSession session = request.getSession(false);
+				if(session == null) {
+					response.sendRedirect("LoggInnServlet");
+				} else {
+					
 				request.getAttribute("user");
 				request.getRequestDispatcher("WEB-INF/paameldingsbekreftelse.jsp").forward(request, response);
 		}
-
+		}
 
 }
