@@ -20,6 +20,5 @@ Logg inn ved å gi mobilnummeret ditt.</p>
     <p><input type="submit" value="Logg inn" /></p>
   </fieldset>
 </form>
-
 </body>
 </html>

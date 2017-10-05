@@ -33,6 +33,6 @@
 	</td></tr>
 </c:forEach>
 </table>
-<p><a href="ferdig.jsp">Ferdig</a></p>
+<p><a href="FerdigServlet">Ferdig</a></p>
 </body>
 </html>

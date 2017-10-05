@@ -28,8 +28,7 @@ public class DeltagerListeServlet extends HttpServlet {
 				request.setAttribute("items", ueoa.finnAlleUser());
 				request.getRequestDispatcher("WEB-INF/deltagerliste.jsp").forward(request, response);
 			} else {
-				response.sendRedirect("MobilLoginServlet");
+				response.sendRedirect("LoggInnServlet");
 		}
 	}
-
 }
