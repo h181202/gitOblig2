@@ -34,9 +34,10 @@ public class BetalingsoversiktServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		if(session == null) {
+		if(session.getAttribute("kasserer") == null) {
 			response.sendRedirect("KassererLoginServlet");
 		} else {
+			
 			List<User> listen = userEAO.finnAlleUser();
 		
 			request.setAttribute("listen", listen);
@@ -50,12 +51,15 @@ public class BetalingsoversiktServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//Integer mobilnr = null;
-		String test = request.getParameter("mobil");
-		System.out.println(test);
-		System.out.println(test);
-		System.out.println(test);
-		System.out.println(test);
+		String input = request.getParameter("mobil");
+		if(input != null)
+		{
+			Integer nr = Integer.parseInt(input);
+			userEAO.betaling(userEAO.finnUser(nr));
+		}
+		
+		response.sendRedirect("BetalingsoversiktServlet");
+		
 	}
 
 }

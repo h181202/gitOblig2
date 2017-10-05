@@ -57,6 +57,8 @@ public class KassererLoginServlet extends HttpServlet {
 				session.invalidate();
 			}
 			session = request.getSession(true);
+			Integer i = 1;
+			session.setAttribute("kasserer", i);
 			response.sendRedirect("BetalingsoversiktServlet");
 		}
 		
