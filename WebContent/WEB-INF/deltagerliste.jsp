@@ -13,7 +13,7 @@
 <h2>Deltagerliste</h2>
 <table border="1">
 <tr bgcolor="#cccccc"><th>Kjønn</th><th align="left">Navn</th></tr>
-<c:forEach items="${items}" var="user">
+<c:forEach var="user" items="${requestScope.items}">
 <tr 
 	<c:if test="${user.betalt} == true">
 		bgcolor="#aaffaa"
