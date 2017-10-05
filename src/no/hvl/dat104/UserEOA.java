@@ -28,14 +28,14 @@ public class UserEOA {
 	}
 	
 	public User finnUser(int mobilnr) {
-	//		User user = em.find(User.class, mobilnr);
-	//	return user;	
-		user1.setMobil(81549300);
-		user1.setFnavn("Erik");
-		user1.setEnavn("Rolpemann");
-		user1.setSex(true);
-		user1.setBetalt(false);
-		return user1;
+		User user = em.find(User.class, mobilnr);
+		return user;	
+//		user1.setMobil(81549300);
+//		user1.setFnavn("Erik");
+//		user1.setEnavn("Rolpemann");
+//		user1.setSex(true);
+//		user1.setBetalt(false);
+//		return user1;
 	}
 	
 	public List<User> finnAlleUser(){

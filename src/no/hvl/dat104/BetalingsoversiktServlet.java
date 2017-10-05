@@ -33,9 +33,10 @@ public class BetalingsoversiktServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<User> listen = userEAO.finnAlleUser();
-		request.setAttribute("listen", listen);
-		
+		//List<User> listen = userEAO.finnAlleUser();
+		User u = userEAO.finnUser(81549300);
+		//request.setAttribute("listen", listen);
+		System.out.println(u.getEnavn());
 		request.getRequestDispatcher("betalingsoversikt").forward(request, response);
 	}
 

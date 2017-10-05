@@ -13,7 +13,7 @@
 <form action="KassererLoginServlet" method="post">
   <fieldset>
     <legend>Kasserer login</legend>
-    <p>Passord: <input type="password" name="password" value="allstars" /></p>
+    <p>Passord: <input type="password" name="password" value="" /></p>
     <p><input type="submit" value="Login" /></p>
     <p><c:out value="${requestScope.redirectErrorMessage}"></c:out>
   </fieldset>
