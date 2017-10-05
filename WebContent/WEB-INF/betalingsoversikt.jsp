@@ -20,10 +20,9 @@
 </c:if>
 
 <c:if test="${!user.betalt}">
-<form action="BetalingsoversiktServlet" method="post">
 
-<tr><td><c:out value="${user.fnavn} ${user.enavn}"></c:out></td><td><c:out value="${user.mobil}"></c:out></td>
-<td><input type="submit" name="mobil" value="Registrer betalingeeen"/></td></tr>
+<form action="BetalingsoversiktServlet" method="post">
+<tr><td><c:out value="${user.fnavn} ${user.enavn}"></c:out></td><td><c:out value="${user.mobil}"></c:out></td><td><input type="submit" name="mobil" value="Registrer betalingeeen"/></td></tr>
 <input type="hidden" name="mobil" value='<c:out value="${user.mobil}"></c:out>'/>
 
 </form>
