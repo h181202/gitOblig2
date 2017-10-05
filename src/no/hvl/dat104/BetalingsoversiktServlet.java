@@ -33,11 +33,11 @@ public class BetalingsoversiktServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//List<User> listen = userEAO.finnAlleUser();
-		User u = userEAO.finnUser(81549300);
-		//request.setAttribute("listen", listen);
-		System.out.println(u.getEnavn());
-		request.getRequestDispatcher("BetalingsoversiktServlet").forward(request, response);
+		List<User> listen = userEAO.finnAlleUser();
+		
+		request.setAttribute("listen", listen);
+		
+		request.getRequestDispatcher("WEB-INF/betalingsoversikt.jsp").forward(request, response);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class BetalingsoversiktServlet extends HttpServlet {
 		if((request.getParameter("mobil") != null))
 		{
 			mobilnr = Integer.parseInt(request.getParameter("mobil"));
-			userEAO.finnUser(mobilnr).setBetalt(true);
+			userEAO.betaling(userEAO.finnUser(mobilnr));
 		}
 		
 		
