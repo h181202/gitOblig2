@@ -22,42 +22,25 @@ public class UserEOA {
 	private EntityManager em;
 	
 	public void leggTilUser(User user) {
-		//if(!userFinnes(user)) {
-		//	em.persist(user);
-		//}
+		if(!userFinnes(user)) {
+			em.persist(user);
+		}
 	}
 	
 	public User finnUser(int mobilnr) {
 		User user = em.find(User.class, mobilnr);
 		return user;	
-//		user1.setMobil(81549300);
-//		user1.setFnavn("Erik");
-//		user1.setEnavn("Rolpemann");
-//		user1.setSex(true);
-//		user1.setBetalt(false);
-//		return user1;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<User> finnAlleUser(){
 		Query query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
 		return query.getResultList();
-		
-		
-		
-//		User user1 = new User();
-//		List<User> userList = new ArrayList<User>();
-//		user1.setMobil(81549300);
-//		user1.setFnavn("Erik");
-//		user1.setEnavn("Rolpemann");
-//		user1.setSex(true);
-//		user1.setBetalt(false);
-//		userList.add(user1);
-//		return userList;
 	}
 	
 	public void betaling(User user) {
-		//user.setBetalt(true);
-		//em.persist(user);
+		user.setBetalt(true);
+		em.merge(user);
 	}
 	
 	public boolean userFinnes(User user) {
