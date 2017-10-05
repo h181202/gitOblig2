@@ -49,7 +49,9 @@ public class LoggInnServlet extends HttpServlet {
 					session.invalidate();
 				}
 				session = request.getSession(true);
+				request.getSession().setAttribute("user", eao.finnUser(nummer));
 				response.sendRedirect("DeltagerListeServlet");
+				
 			}
 	}
 
