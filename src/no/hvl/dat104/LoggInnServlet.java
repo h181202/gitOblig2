@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import david.copy.UserEOA;
 
@@ -20,11 +21,16 @@ public class LoggInnServlet extends HttpServlet {
        
 	@EJB
 	UserEOA eao;
-	
-	String feilmelding = "";
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 					throws ServletException, IOException {
+		String redirectErrorMessage = "";
+		if(request.getParameter("feilPassord") != null)
+		{
+			redirectErrorMessage = "Feil passord";
+		}
+		request.setAttribute("redirectErrorMessage", redirectErrorMessage);
+		
 		request.getRequestDispatcher("WEB-INF/mobillogin.jsp").forward(request, response);
 	}
 
@@ -36,14 +42,16 @@ public class LoggInnServlet extends HttpServlet {
 			
 			if((eao.finnUser(nummer) == null ) || (nr == null)) {
 
-				feilmelding = "Feil passord";
-				
-				request.getSession().setAttribute("feilmelding", feilmelding);
-				response.sendRedirect("LoggInnServlet");
+				response.sendRedirect("LoggInnServlet?feilPassord");
 			} else {
-				request.getSession().removeAttribute("feilmelding");
+				HttpSession session = request.getSession(false);
+				if (session != null) {
+					session.invalidate();
+				}
+				session = request.getSession(true);
 				response.sendRedirect("DeltagerListeServlet");
 			}
 	}
 
-}
+	}
+
