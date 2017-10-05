@@ -32,6 +32,6 @@
 
 </table>
 
-<p><a href="KasererLoginServlet">Ferdig</a></p>
+<p><a href="KassererLoginServlet">Ferdig</a></p>
 </body>
 </html>
