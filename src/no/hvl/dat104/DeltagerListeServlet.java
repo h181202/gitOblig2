@@ -24,12 +24,11 @@ public class DeltagerListeServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-			if(session == null) {
-				//request.setAttribute("items", ueoa.finnAlleUser());
-				request.setAttribute("items", ueoa.finnUser(81549300));
+			if(session != null) {
+				request.setAttribute("items", ueoa.finnAlleUser());
 				request.getRequestDispatcher("WEB-INF/deltagerliste.jsp").forward(request, response);
 			} else {
-				response.sendRedirect("FerdigServlet");
+				response.sendRedirect("MobilLoginServlet");
 		}
 	}
 
