@@ -32,6 +32,6 @@
 
 </table>
 
-<p><a href="kassererlogin.html">Ferdig</a></p>
+<p><a href="KasererLoginServlet">Ferdig</a></p>
 </body>
 </html>
