@@ -37,7 +37,7 @@ public class BetalingsoversiktServlet extends HttpServlet {
 		User u = userEAO.finnUser(81549300);
 		//request.setAttribute("listen", listen);
 		System.out.println(u.getEnavn());
-		request.getRequestDispatcher("betalingsoversikt").forward(request, response);
+		request.getRequestDispatcher("BetalingsoversiktServlet").forward(request, response);
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class BetalingsoversiktServlet extends HttpServlet {
 		}
 		
 		
-		doGet(request, response);
+		//doGet(request, response);
 	}
 
 }
