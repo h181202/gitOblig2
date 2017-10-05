@@ -16,7 +16,9 @@ public class FerdigServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sesjon = request.getSession(false);
-		sesjon.invalidate();
+		if(sesjon != null) {
+			sesjon.invalidate();
+		}
 		request.getRequestDispatcher("WEB-INF/ferdig.jsp").forward(request, response);
 	}
 
