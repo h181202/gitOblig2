@@ -39,15 +39,15 @@ public class UserEOA {
 	}
 	
 	public List<User> finnAlleUser(){
-	//		TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
-	//	return query.getResultList();
-		user1.setMobil(81549300);
-		user1.setFnavn("Erik");
-		user1.setEnavn("Rolpemann");
-		user1.setSex(true);
-		user1.setBetalt(false);
-		userList.add(user1);
-		return userList;
+		TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
+		return query.getResultList();
+//		user1.setMobil(81549300);
+//		user1.setFnavn("Erik");
+//		user1.setEnavn("Rolpemann");
+//		user1.setSex(true);
+//		user1.setBetalt(false);
+//		userList.add(user1);
+		//return userList;
 	}
 	
 	public void betaling(User user) {
