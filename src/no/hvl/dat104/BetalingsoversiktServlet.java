@@ -45,15 +45,13 @@ public class BetalingsoversiktServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Integer mobilnr = null;
-		if((request.getParameter("mobil") != null))
-		{
-			mobilnr = Integer.parseInt(request.getParameter("mobil"));
-			userEAO.betaling(userEAO.finnUser(mobilnr));
-		}
-		
-		
-		//doGet(request, response);
+		//Integer mobilnr = null;
+		String test = request.getParameter("mobil");
+		System.out.println(test);
+		System.out.println(test);
+		System.out.println(test);
+		System.out.println(test);
 	}
 
 }
+

@@ -10,7 +10,6 @@
 </head>
 <body>
 <h2>Betalingsoversikt</h2>
-<form>
 <table border="1">
 <tr bgcolor="#cccccc"><th align="left">Navn</th><th>Mobil</th><th>Betalingsstatus</th></tr>
 
@@ -22,18 +21,18 @@
 
 <c:if test="${!user.betalt}">
 <form action="BetalingsoversiktServlet" method="post">
+
 <tr><td><c:out value="${user.fnavn} ${user.enavn}"></c:out></td><td><c:out value="${user.mobil}"></c:out></td>
-<td><input type="submit" name="registrer" value="Registrer betaling"/></td></tr>
+<td><input type="submit" name="mobil" value="Registrer betalingeeen"/></td></tr>
 <input type="hidden" name="mobil" value='<c:out value="${user.mobil}"></c:out>'/>
+
 </form>
 </c:if>
 
 </c:forEach>
-<tr><td>Arne And</td><td>123 45 678</td><td align="center">Betaling mottatt</td></tr>
-<tr><td>Arne Arnesen</td><td>901 23 456</td><td><input type="submit" name="90123456" value="Registrer betaling" /></td></tr>
-<tr><td>Berit Beritsen</td><td>876 54 321</td><td><input type="submit" name="87654321" value="Registrer betaling" /></td></tr>
+
 </table>
-</form>
+
 <p><a href="kassererlogin.html">Ferdig</a></p>
 </body>
 </html>
