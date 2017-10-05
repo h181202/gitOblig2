@@ -34,13 +34,8 @@ public class LoggInnServlet extends HttpServlet {
 			int nummer = Integer.parseInt(request.getParameter("mobil"));
 			String nr = request.getParameter("mobil");
 			
-			if(nr == null) {
-				feilmelding = "Passord mangler";
-				
-				request.getSession().setAttribute("feilmelding", feilmelding);
-				response.sendRedirect("LoggInnServlet");
-				
-			} else if (eao.finnUser(nummer) == null ) {
+			if((eao.finnUser(nummer) == null ) || (nr == null)) {
+
 				feilmelding = "Feil passord";
 				
 				request.getSession().setAttribute("feilmelding", feilmelding);
