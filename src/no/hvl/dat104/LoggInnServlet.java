@@ -27,7 +27,7 @@ public class LoggInnServlet extends HttpServlet {
 		String redirectErrorMessage = "";
 		if(request.getParameter("feilPassord") != null)
 		{
-			redirectErrorMessage = "Feil passord";
+			redirectErrorMessage ="Feil passord";
 		}
 		request.setAttribute("redirectErrorMessage", redirectErrorMessage);
 		
