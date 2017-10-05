@@ -59,7 +59,7 @@ public class BetalingsoversiktServlet extends HttpServlet {
 		}
 		
 		response.sendRedirect("BetalingsoversiktServlet");
-		//lalaht
+		//lalahth
 	}
 
 }
