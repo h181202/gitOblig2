@@ -15,10 +15,10 @@
 <tr bgcolor="#cccccc"><th>Kjønn</th><th align="left">Navn</th></tr>
 <c:forEach var="user" items="${requestScope.items}">
 <tr 
-	<c:if test="${user.betalt} == true">
+	<c:if test="${user} eq ${sessionScope.user} && ${user.betalt} == true">
 		bgcolor="#aaffaa"
 	</c:if>
-	<c:if test="${user.betalt} == false">
+	<c:if test="${user} eq ${sessionScope.user} && ${user.betalt} == false">
 		bgcolor="#ffaaaa"
 	</c:if>
 ><td align="center">
