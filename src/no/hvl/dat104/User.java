@@ -2,6 +2,7 @@ package no.hvl.dat104;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  */
 @Entity
+@Table(name = "user", schema = "public")
 public class User {
 
 	@Id

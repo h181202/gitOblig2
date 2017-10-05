@@ -15,16 +15,8 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class UserEOA {
 
-				private	User user1;
-				private	user1.setMobil(81549300);
-				private	user1.setFnavn("Erik");
-				private	user1.setEnavn("Rolpemann");
-				private	user1.setSex(true);
-				private	user1.setBetalt(false);
-				private	List<User> userList = new ArrayList<User>();
-	
-	
-	
+		User user1;
+		List<User> userList = new ArrayList<User>();
 	
 	@PersistenceContext(name = "userPersistenceUnit")
 	private EntityManager em;
@@ -38,12 +30,23 @@ public class UserEOA {
 	public User finnUser(int mobilnr) {
 	//		User user = em.find(User.class, mobilnr);
 	//	return user;	
+		user1.setMobil(81549300);
+		user1.setFnavn("Erik");
+		user1.setEnavn("Rolpemann");
+		user1.setSex(true);
+		user1.setBetalt(false);
 		return user1;
 	}
 	
 	public List<User> finnAlleUser(){
 	//		TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
 	//	return query.getResultList();
+		user1.setMobil(81549300);
+		user1.setFnavn("Erik");
+		user1.setEnavn("Rolpemann");
+		user1.setSex(true);
+		user1.setBetalt(false);
+		userList.add(user1);
 		return userList;
 	}
 	
