@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -15,8 +16,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class UserEOA {
 
-		User user1;
-		List<User> userList = new ArrayList<User>();
+		
 	
 	@PersistenceContext(name = "userPersistenceUnit")
 	private EntityManager em;
@@ -39,15 +39,20 @@ public class UserEOA {
 	}
 	
 	public List<User> finnAlleUser(){
-		TypedQuery<User> query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
+		Query query = em.createQuery("SELECT u FROM User u ORDER BY u.fnavn, u.enavn", User.class);
 		return query.getResultList();
+		
+		
+		
+//		User user1 = new User();
+//		List<User> userList = new ArrayList<User>();
 //		user1.setMobil(81549300);
 //		user1.setFnavn("Erik");
 //		user1.setEnavn("Rolpemann");
 //		user1.setSex(true);
 //		user1.setBetalt(false);
 //		userList.add(user1);
-		//return userList;
+//		return userList;
 	}
 	
 	public void betaling(User user) {
@@ -58,11 +63,6 @@ public class UserEOA {
 	public boolean userFinnes(User user) {
 			return finnUser(user.getMobil()) != null;
 		}
-		
-		
-	
-	
-	
-	
+
 	
 }
