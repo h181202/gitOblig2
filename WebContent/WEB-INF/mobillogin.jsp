@@ -12,11 +12,11 @@
 <h2>Logg inn</h2>
 <p>Det er kun registrerte deltagere som får se deltagerlisten.
 Logg inn ved å gi mobilnummeret ditt.</p>
-<form action="LogginnServlet" method = "post">
+<form action="LoggInnServlet" method = "post">
   <fieldset>
     <legend>Logg inn</legend>
     <p>Mobil: <input type="password" name="mobil"/>
-    ${requestScope.redirectErrorMessage}"></p>
+    ${requestScope.redirectErrorMessage}</p>
     <p><input type="submit" value="Logg inn" /></p>
   </fieldset>
 </form>
